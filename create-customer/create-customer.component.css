@@ -1,0 +1,7 @@
+body{
+    color: white;
+    background-image: url('D:\shannu\New folder (2)\fdapp\src\assets\foodcarousel1.jpg');
+    width: 100%;
+    /* height:100vh; */
+    box-shadow: 0 0 8px 8px rgb(243, 163, 163) inset;
+}
