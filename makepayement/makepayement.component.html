@@ -1,0 +1,117 @@
+<body>
+  <div>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+      
+          <a class="navbar-brand" href="#">FoodFox</a>
+ 
+      <a  class="navbar-brand"  routerLink="/makepay" routerLinkActive="active">Make Payment</a>
+    
+        <a  class="navbar-brand"  routerLink="/pay" routerLinkActive="active">Cancel Payment</a>
+       
+          <a  class="navbar-brand"  routerLink="/payidexist" routerLinkActive="active">Payment Id Exist</a>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/homepage">Logout <span class="sr-only"></span></a>
+            </li>
+            </ul>
+            </div>
+         <!-- <li class="nav-item">
+          <a  class="nav-link"  routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link"  routerLink="/allrest" routerLinkActive="active">View Restaurants</a>
+            </li>  -->
+            <!-- <li class="nav-item">
+              <a  class="nav-link"  routerLink="/customereg" routerLinkActive="active">CustomerRegistration</a>
+              </li> 
+              <li class="nav-item">
+                <a  class="nav-link"  routerLink="/restownerreg" >RestaurantOwnerRegistration</a>
+                </li> 
+                <li class="nav-item">
+                  <a  class="nav-link"  routerLink="/customerlogin" routerLinkActive="active">CustomerLogin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a  class="nav-link"  routerLink="/restownerlogin" routerLinkActive="active">CustomerLogin</a>
+                    </li> -->
+    
+  
+    </nav> 
+  </div> 
+
+    <!-- {{signupForm.value|json}} -->
+    <div class="jumbotron">
+    <div class="container">
+    
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+       ErrorOccured {{error}}
+      </div>
+    
+    
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    
+        <h3 style="text-align:center">
+            Do Payment
+        </h3>
+    
+        
+           <br>
+         <div class="form-group"> 
+           <!--Cart-Id-->
+          <label for="Cart-Id">Cart-Id:<span class="lblError" style="color: red;">*</span></label>
+          <div class="controls">
+            <h3></h3>
+          <input type="text" class="form-control" formControlName="cart_id" placeholder="Enter cart_Id" id="cart_id" [(ngModel)]="payment.cart.cart_id" name="cart_id">
+          <p class="lblError"  *ngIf="signupForm.get('cart_id').hasError('required')
+          && !signupForm.get('cart_id').pristine">
+          Cart_Id is necessary
+          </p>
+          <p class="lblError"*ngIf="signupForm.get('cart_id').hasError('pattern')">
+            Only Numbers are allowed
+          </p>
+        </div>
+        </div>
+    
+          <div class="form-group">
+          <label for="Payment-Mode">Payment-Mode:<span class="lblError" style="color: red;">*</span></label>
+           <!--<label for="Payment-Mode">Payment-Mode</label> -->
+          <input type="text" class="form-control" formControlName="payment_mode"  placeholder="Enter payment mode" id="payment_mode"  [(ngModel)]="payment.payment_mode" name="payment-mode">
+          <p class="lblError"  *ngIf="signupForm.get('payment_mode').hasError('required')
+          && !signupForm.get('payment_mode').pristine">
+          Enter Payment Mode.
+          </p>
+        </div> 
+    
+        
+        <!-- <div class="form-group">
+        <label for="Payment-Mode">Payment-Mode:<span class="lblError" style="color: red;">*</span></label>
+        <select id="payment_mode" name="payment_mode" class="form-control" formControlName="payment_mode"  [(ngModel)]="payment.payment_mode" >
+          <option value="Cash" selected>Cash</option>
+          <option value="Card">Card</option>
+        </select>
+    </div> -->
+        
+    
+        <br>
+        <div class="form-group">
+         <button class="btn btn-primary" type="submit" [disabled]="signupForm.invalid" style="width: 15%" >Do payment</button> 
+        </div>
+        <br>
+        <br>
+        <br>
+        
+      
+        <br>
+        <br>
+        <br>
+       </form> 
+      </div>
+    </div>
+    
+    </body>
+    
+    
