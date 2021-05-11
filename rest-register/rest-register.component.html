@@ -1,0 +1,95 @@
+<body>
+<div>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+      <a class="navbar-brand" >FoodFox</a>
+       
+      
+        <a  class="navbar-brand"  routerLink="/restregister" >Restaurant Registration</a>
+       
+        <button type="button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/homepage">Logout <span class="sr-only"></span></a>
+            </li>
+            </ul>
+            </div>
+
+             
+               
+      
+  
+    </nav> 
+  </div> 
+
+<h3 align="center">Restaurant Registration</h3>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+   ErrorOccured {{error}}
+  </div>
+
+
+  
+
+
+    
+       <br>
+     <!-- <div class="form-group"> 
+       Cart-Id
+      <label for="Rest-Id">Rest-Id:<span class="lblError" style="color: red;">*</span></label>
+      <div class="controls">
+        <h3></h3>
+      <input type="text" class="form-control" formControlName="rid" placeholder="Enter rid" id="rid" [(ngModel)]="restaurant.rid" name="rid">
+      <p class="lblError"  *ngIf="registrationForm.get('rid').hasError('required')
+      && !registrationForm.get('rid').pristine">
+      RID is necessary
+      </p>
+      <p class="lblError"*ngIf="registrationForm.get('rid').hasError('pattern')">
+        Only Numbers are allowed
+      </p>
+    </div>
+    </div> -->
+
+     <div class="form-group">
+      <label for="rname">Restaurant_Name:<span class="lblError" style="color: red;">*</span></label>
+      <input type="text" class="form-control" formControlName="rname"  placeholder="Enter Restaurant Name" id="rname"  [(ngModel)]="restaurant.rname" name="rname">
+      <p class="lblError"  *ngIf="registrationForm.get('rname').hasError('required') && !registrationForm.get('rname').pristine">Enter Restaurant Name.</p>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Restaurant Address:<span class="lblError" style="color: red;">*</span></label>
+      <input type="text" class="form-control" formControlName="address"  placeholder="Enter Restaurant address" id="address"  [(ngModel)]="restaurant.address" name="address">
+      <p class="lblError"  *ngIf="registrationForm.get('address').hasError('required') && !registrationForm.get('address').pristine">Enter Restaurant Address</p>
+    </div>
+
+    <div class="form-group">
+      <label for="contactNo">Restaurant contactNo:<span class="lblError" style="color: red;">*</span></label>   
+      <input type="text" class="form-control" formControlName="contactNo"  placeholder="Enter Restaurant contactNo" id="contactNo"  [(ngModel)]="restaurant.contactNo" name="contactNo">
+      <p class="lblError"  *ngIf="registrationForm.get('contactNo').hasError('required') && !registrationForm.get('contactNo').pristine">Enter Restaurant contactNo.</p>
+    </div>
+
+    
+    
+
+    <br>
+    <div class="form-group">
+     <button type="button" class="btn btn-success" routerLink="/resthomepage" type="submit" [disabled]="registrationForm.invalid" style="width: 15%" >Register</button> 
+     <!-- <button type="button" class="btn btn-success" routerLink="/home" type="submit"  >Back To Login Page</button>  -->
+
+    </div>
+    <br>
+    <br>
+    <br>
+    
+  
+    <br>
+    <br>
+    <br>
+    
+</div>
+</form>
+</body>
