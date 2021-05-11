@@ -1,0 +1,103 @@
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+
+              <a class="navbar-brand" href="#">FoodFox</a>
+
+          <a  class="navbar-brand" routerLink="/allrest" routerLinkActive="active">View Restaurants</a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/homepage">Logout <span class="sr-only"></span></a>
+            </li>
+            </ul>
+            </div>
+             <!-- <li class="nav-item">
+              <a  class="nav-link"  routerLink="/home" routerLinkActive="active">Home</a>
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link"  routerLink="/allrest" routerLinkActive="active">View Restaurants</a>
+                </li>  -->
+                <!-- <li class="nav-item">
+                  <a  class="nav-link"  routerLink="/customereg" routerLinkActive="active">CustomerRegistration</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a  class="nav-link"  routerLink="/restownerreg" >RestaurantOwnerRegistration</a>
+                    </li> 
+                    <li class="nav-item">
+                      <a  class="nav-link"  routerLink="/customerlogin" routerLinkActive="active">CustomerLogin</a>
+                      </li>
+                      <li class="nav-item">
+                        <a  class="nav-link"  routerLink="/restownerlogin" routerLinkActive="active">CustomerLogin</a>
+                        </li> -->
+    
+      
+        </nav> 
+      </div> 
+
+    <br><br>
+    
+    <h1 align="center">  Menu</h1>
+         <div class='card-body' align="end">
+    
+          <div class='row'>
+            <div class='col-md-1' >Search :</div>
+            <div class='col-md-1' >
+              <input type='text'  placeholder="Search for Items"
+                     [(ngModel)]='listFilter' />
+            </div>
+          </div>
+          <div class='row'
+               *ngIf='listFilter'>
+            <div class='col-md-4'>
+              <h4>Filtered by: {{listFilter}}</h4>
+            </div>
+          </div>
+          
+<br><br>      
+
+    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid " novalidate class="feedback-form">
+    <div class="container-fluid" style="margin: 0 auto; width: 75%;">
+      <div class="row">
+        <div *ngFor="let item of items; let index=index" >
+          <div [title]='item.itemName'></div>
+          <div class="card" style="width: 18rem;">
+
+            <div class="card-block">
+              <div class="card-body">
+                <h5 class="card-title" style="color: black">{{item.itemName}}</h5>
+                <p class="card-text">Price : Rs.{{item.cost}}</p>
+                <!-- <p> Quantity Available : {{item.quantity}}</p> -->
+              </div>
+            </div>
+          </div>
+          <!-- <input class="input-group-text input-align" type="number" name="name+{{index}}" min="0" max="{{items[index].quantity}}"  > -->
+        </div>
+      </div>
+    </div>
+    <br><br>
+<!-- <div class="total" style="text-align: center; font-size: large">
+  Cart Total : {{total}}
+</div> -->
+<table align="center">
+  <tr>
+    <td>
+      <!-- <input type="submit" class="bigbutton" value="Add To Cart"> -->
+    </td>
+    <td>
+      <button routerLink="/makepay" class="bigbutton"><span>Buy Items</span></button>
+    </td>
+    <td>
+      <!-- <button routerLink="/home" type="button" class="bigbutton" (click)="clearLocal()"><span>Log Out</span></button> -->
+    </td>
+  </tr>
+</table>
+<td><button class = "btn btn-danger" routerLink="/allrest">Back to Restaurant </button></td>
+
+</form>
+</div>
+</body>
