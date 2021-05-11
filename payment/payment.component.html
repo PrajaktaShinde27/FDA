@@ -1,0 +1,127 @@
+
+
+  <body>
+
+
+    <div>
+      <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+        
+            
+           
+            <a class="navbar-brand" href="#">FoodFox</a>
+          
+      
+      
+        <a  class="navbar-brand"  routerLink="/makepay" routerLinkActive="active">Make Payment</a>
+      
+       
+          <a  class="navbar-brand"  routerLink="/pay" routerLinkActive="active">Cancel Payment</a>
+        
+         
+            <a  class="navbar-brand"  routerLink="/payidexist" routerLinkActive="active">Payment Id Exist</a>
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/homepage">Logout <span class="sr-only"></span></a>
+              </li>
+              </ul>
+              </div>
+           <!-- <li class="nav-item">
+            <a  class="nav-link"  routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link"  routerLink="/allrest" routerLinkActive="active">View Restaurants</a>
+              </li>  -->
+              <!-- <li class="nav-item">
+                <a  class="nav-link"  routerLink="/customereg" routerLinkActive="active">CustomerRegistration</a>
+                </li> 
+                <li class="nav-item">
+                  <a  class="nav-link"  routerLink="/restownerreg" >RestaurantOwnerRegistration</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a  class="nav-link"  routerLink="/customerlogin" routerLinkActive="active">CustomerLogin</a>
+                    </li>
+                    <li class="nav-item">
+                      <a  class="nav-link"  routerLink="/restownerlogin" routerLinkActive="active">CustomerLogin</a>
+                      </li> -->
+     
+    
+      </nav> 
+    </div> 
+    <div class="jumbotron">
+    <div class="container">
+    
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+       ErrorOccured {{error}}
+      </div>
+    
+    
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    
+        <h3 style="text-align:center">
+            Cancel Payment
+        </h3>
+    
+        
+           <br>
+
+    <div class="form-group">
+      <label for="Payment-Id">Payment-Id:<span class="lblError" style="color: red;">*</span></label>
+      <div class="controls">
+        
+      <input type="text" class="form-control" formControlName="payment_id" placeholder="Enter payment_Id" id="payment_id" [(ngModel)]="payment.payment_id" name="payment_id">
+      <p class="lblError"  *ngIf="signupForm.get('payment_id').hasError('required')
+      && !signupForm.get('payment_id').pristine">
+      Payment_Id is necessary
+      </p>
+      <p class="lblError"*ngIf="signupForm.get('payment_id').hasError('pattern')">
+        Only Numbers are allowed
+      </p>
+    </div>
+  </div> 
+     
+
+  <br>
+    <div class="form-group">
+     <button class="btn btn-primary" type="submit" [disabled]="signupForm.invalid" style="width: 15%" >Cancel payment</button> 
+    </div>
+    <br>
+    <br>
+    <br>
+    
+  
+    <br>
+    <br>
+    <br>
+   </form> 
+  </div>
+</div>
+
+</body>
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <!--  <button style='margin-right:16px'   (click)="getPaymentDetails(payment.payment_id)" class="btn btn-danger">PaymentIdExist</button>
+    <button style='margin-right:16px'  (click)="cancelPayment(payment.payment_id)" class="btn btn-danger">cancelPayment</button>
+
+
+    <br>
+    <br>
+    <br>
+   </form>
+</div>--> 
+
+
