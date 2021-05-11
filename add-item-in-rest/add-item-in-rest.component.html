@@ -1,0 +1,80 @@
+<body>
+<div>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark ">
+      
+          <a class="navbar-brand"  >FoodFox</a>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/homepage">Logout <span class="sr-only"></span></a>
+              </li>
+              </ul>
+              </div>
+           
+            
+                    
+     
+     
+    </nav> 
+
+  </div>
+  <h1 align="center"> Add Items in Restaurant</h1>
+  <div class="container">
+  
+  
+  
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >      
+         <br>
+       <div class="form-group"> 
+         <!--Cart-Id-->
+        <label for="itemName">itemName:<span class="lblError" style="color: red;">*</span></label>
+        <div class="controls">
+          <h3></h3>
+          
+        <input type="text" class="form-control" formControlName="itemName" placeholder="Enter item Name" id="itemName" [(ngModel)]="item.itemName" name="itemName">
+        <p class="lblError"  *ngIf="signupForm.get('itemName').hasError('required')
+        && !signupForm.get('itemName').pristine">
+        item Name is necessary
+        </p>
+      
+        <p class="lblError"*ngIf="signupForm.get('itemName').hasError('pattern')">
+          Enter Item Name.
+        </p>
+      </div>
+      </div>
+  
+       <div class="form-group">
+        <label for="cost">Price(INR):<span class="lblError" style="color: red;">*</span></label>
+        <!-- <label for="Payment-Mode">Payment-Mode</label> -->
+        <input type="text" class="form-control" formControlName="cost"  placeholder="Enter cost" id="cost"  [(ngModel)]="item.cost" name="cost">
+        <p class="lblError"  *ngIf="signupForm.get('cost').hasError('required')
+        && !signupForm.get('cost').pristine">
+        Enter Price.
+        </p>
+      </div>
+
+  
+      
+      
+  
+      <br>
+      <div class="form-group">
+       <button type="button" class="btn btn-success"  type="submit" [disabled]="signupForm.invalid" style="width: 15%" >Add Items</button> <br><br>
+       <button type="button" class="btn btn-success"   routerLink='/resthomepage' >Bact To Home Page</button> 
+      </div>
+      <br>
+      <br>
+      <br>
+      
+    
+      <br>
+      <br>
+      <br>
+     </form> 
+  </div>
+  
+  </body>
