@@ -1,0 +1,80 @@
+<div>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+      
+          <a class="navbar-brand"  >FoodFox</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/homepage">Logout <span class="sr-only"></span></a>
+          </li>
+          </ul>
+          </div>
+         <!-- <li class="nav-item">
+          <a  class="nav-link" >Home</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a  class="nav-link"  routerLink="/pay" routerLinkActive="active">Checkout</a>
+            </li>  -->
+            <!-- <li class="nav-item">
+              <a  class="nav-link"  routerLink="/createcust" routerLinkActive="active">Customer Details</a>
+              </li> 
+              <li class="nav-item">
+                <a  class="nav-link"  routerLink="/custolist" >All Customers</a>
+                </li> 
+                <li class="nav-item">
+                  <a  class="nav-link"  routerLink="/updatecust" routerLinkActive="active">Update Customer</a>
+                  </li> -->
+                  <!-- <li class="nav-item">
+                    <a  class="nav-link"  routerLink="/restownerlogin" routerLinkActive="active">CustomerLogin</a>
+                    </li> -->
+ 
+  
+    </nav> 
+  </div> 
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Customer List</h2>
+    </div>
+    <div class="panel-body">
+      <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th >Id</th>
+            <th >First Name</th>
+            <th >Last Name</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Contact Number</th>
+            <th >Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">  
+              <!-- customers is the array which we define in the  components -->
+            <td>{{customer.customer_id}}</td>  
+             <!-- property of employee object -->
+            <td>{{customer.first_name}}</td>
+            <td>{{customer.last_name}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.gender}}</td>  
+            <td>{{customer.contact_number}}</td>   
+            <td>
+                <button style='margin-right:16px' (click)="updateCustomer(customer.customer_id)" class="btn btn-success">Update</button>
+                <button style='margin-right:16px' (click)="deleteCustomer(customer.customer_id)" class="btn btn-danger">Delete</button>
+                
+            </td>  
+             
+          </tr>
+        </tbody>
+      </table>
+      <button style='margin-right:16px' routerLink='/custhomepage' class="btn btn-danger">Delete</button>
+
+    </div>
+  </div>
+
+
+
